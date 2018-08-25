@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">App4</string>
+    <string name="action_settings">Settings</string>
+    <string name="form_email">Correo</string>
+    <string name="form_name">Nombres</string>
+    <string name="form_username">Usuario</string>
+    <string name="form_firstSurname">Apellido paterno</string>
+    <string name="form_secondSurname">Apellido materno</string>
+    <string name="form_dni">DNI</string>
+    <string name="form_passwordConfirm">Confirmar contraseña</string>
+    <string name="form_password">Contraseña</string>
+  
+    <string name="form_nameLogin">Usuario</string>
+    <string name="form_dateCita">Fecha de cita</string>
+    <string name="form_timeCita">Hora de cita</string>
+
+    <string-array name="array_especialidades">
+      <item>Seleccione...</item>
+      <item>Caries</item>
+      <item>Dolor de muela</item>
+      <item>Dolor de encillas</item>
+    </string-array>  
+  
+  <string name="email_required_error_message">El correo es obligatorio.</string>
+    <string name="password_required_error_message">El campo es requerida</string>
+    <string name="enter_required_fields_error_message">Por favor llene los campos requeridos.</string>
+    <string name="enter_required_fields_thank_you">Gracias por completar los campos obligatorios.</string>
+    
+    <string name ="especialistas_ipsum">
+      lorem epsun viod dovnib osivsdio ovids sdiovn dsonvbsd dsoivnsd sdoivn
+      viondsvsodvb dsvoibdsv dskj dsvoidsbvsd visvbsd vsmdv  iosdvbsd sdoidv
+    </string>
+    <string name="escialista"></string>
+    <string name="menu_settings">Opciones</string>
+</resources>
