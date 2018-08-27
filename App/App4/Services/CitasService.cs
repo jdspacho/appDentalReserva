@@ -25,9 +25,9 @@ namespace App4.Services
         {
             return _citasRepository.GetCitas(idPaciente);
         }
-        public Citas SetCitasRegister(string date, string time, string especialidad, string paciente)
+        public Citas SetCitasRegister(string date, string time, string especialidad, string paciente,string idEspecialista)
         {
-            return _citasRepository.SetCitasRegister(date,time,especialidad,paciente);
+            return _citasRepository.SetCitasRegister(date,time,especialidad,paciente, idEspecialista);
         }
     }
 }

@@ -24,7 +24,7 @@ using App4.Fragments;
 
 namespace App4.Activities
 {
-    [Activity(Label = "menuPrincipal", Theme = "@style/Theme.DesignDemo")]
+    [Activity(Label = "App Dental", Theme = "@style/Theme.DesignDemo")]
     public class MenuPrincipal : AppCompatActivity
     {
         private DrawerLayout mDrawerLayout;

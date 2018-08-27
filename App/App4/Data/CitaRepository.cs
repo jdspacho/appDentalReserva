@@ -29,9 +29,9 @@ namespace App4.Data
             var response = _webServices.Get(ValuesService.ApiUrl + "pacientes/listcita/"+ idPaciente);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<Citas>>(response.Content);
         }
-        public Citas SetCitasRegister(string date, string time, string especialidad, string paciente)
+        public Citas SetCitasRegister(string date, string time, string especialidad, string paciente,string idEspecialista)
         {
-            string dataString = @"{""date"":""" + date + @""",""time"":""" + time + @""",""especialidad"":""" + especialidad + @""",""paciente"":""" + paciente + @"""}";
+            string dataString = @"{""date"":""" + date + @""",""time"":""" + time + @""",""especialidad"":""" + especialidad + @""",""paciente"":""" + paciente + @""",""especialista"":""" + idEspecialista + @"""}";
             var response = _webServices.POST(ValuesService.ApiUrl + "pacientes/citaregister", dataString);
             json_data = new JSONObject(response.Content);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Citas>(json_data.GetString("Cita"));

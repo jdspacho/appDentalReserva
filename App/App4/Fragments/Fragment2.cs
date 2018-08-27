@@ -27,16 +27,20 @@ namespace App4.Fragments
         private Button timeCita;
         private View view;
         private Spinner especialidades;
+        private Spinner especialistas;
         private string date;
         private string time;
         private string especialidadesName;
+        private string idEspecialista;
         private CitasService _citasService = new CitasService();
+        private List<KeyValuePair<string, string>> itemsEsp = new List<KeyValuePair<string, string>>();
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your fragment here
         }
+        
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -47,6 +51,7 @@ namespace App4.Fragments
             dateCita = view.FindViewById<Button>(Resource.Id.btnDateCita);
             timeCita = view.FindViewById<Button>(Resource.Id.btnTimeCita);
             especialidades = view.FindViewById<Spinner>(Resource.Id.cmbEspecialidades);
+            especialistas = view.FindViewById<Spinner>(Resource.Id.cmbEspecialistas);
             //var data = new List<string> { "one", "two", "three" };
             //ArrayAdapter adapter = new ArrayAdapter(view.Context, Resource.Id.cmbEspecialidades, data);
             //especialidades.Adapter = adapter;
@@ -62,9 +67,27 @@ namespace App4.Fragments
                     items.Add(x.Name);
                 }
                 ArrayAdapter adapter = new ArrayAdapter(view.Context, Android.Resource.Layout.SimpleSpinnerItem, items);
- 
                 especialidades.Adapter = adapter;
 
+
+                
+                var especialistasService = new EspecialistasService();
+                var especialistasList = especialistasService.GetEspecialistas();
+                List<Especialistas> itemEspecialistas = especialistasList;
+
+              
+                foreach(Especialistas x in especialistasList)
+                {
+
+                    itemsEsp.Add(new KeyValuePair<string, string>("Especialista: "+x.Name+" "+x.apellidos, x.Id.ToString()));
+                }
+                List<string> espName = new List<string>();
+                foreach (var item in itemsEsp)
+                {
+                    espName.Add(item.Key);
+                }
+                var adapterEsp = new ArrayAdapter<string>(view.Context, Android.Resource.Layout.SimpleSpinnerItem, espName);
+                especialistas.Adapter = adapterEsp;
             }
             catch (Exception e)
             {
@@ -109,14 +132,15 @@ namespace App4.Fragments
                     especialidadesName = e.Parent.GetItemAtPosition(e.Position).ToString();
                
             };
+            especialistas.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected); ;
             btnGuardar.Click += (s, e) =>
             {
                 ISharedPreferences preferences = GetSharedPreferences("SessionLogin", FileCreationMode.Private);
                 var userId = preferences.GetString("SessionId", "");
-                //Toast.MakeText(this.Context, date + "hora: " + time + " especialidad: " + especialidadesName + "usuario" + userId, ToastLength.Long).Show();
+                //Toast.MakeText(this.Context, date + "hora: " + time + " especialidad: " + especialidadesName + "usuario" + userId+ " ID: "+idEspecialista, ToastLength.Long).Show();
 
-                var citas = _citasService.SetCitasRegister(date,time,especialidadesName, userId);
-                if (citas!=null)
+                var citas = _citasService.SetCitasRegister(date, time, especialidadesName, userId, idEspecialista);
+                if (citas != null)
                 {
                     Toast.MakeText(this.Context, "Su cita se registro con exito ", ToastLength.Long).Show();
                 }
@@ -127,6 +151,11 @@ namespace App4.Fragments
             };
 
             return view;
+        }
+        private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
+        {
+            Spinner spinner = (Spinner)sender;
+            idEspecialista = string.Format("{1}",spinner.GetItemAtPosition(e.Position), itemsEsp[e.Position].Value);
         }
 
         private ISharedPreferences GetSharedPreferences(string v, FileCreationMode @private)
@@ -154,7 +183,6 @@ namespace App4.Fragments
             String strDate = timeFormat.Format(timeNew);
             timeCita.Text = $"{strDate}";
             time = $"{strDate}";
-            Toast.MakeText(view.Context, $"Your selected: {strDate}", ToastLength.Long).Show();
         }
     }
 }

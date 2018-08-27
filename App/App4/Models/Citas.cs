@@ -22,6 +22,8 @@ namespace App4.Models
         public string estado { get; set; }
         public string observacion { get; set; }
         public string titulo { get; set; }
+        public string especialista { get; set; }
+        public string idUser { get; set; }
 
 
     }

@@ -58,8 +58,9 @@ namespace App4.Adapters
             {
 
                 var simpleHolder = holder as SimpleViewHolder;
-                simpleHolder.mTxtView.Text = mValues[position].date+" "+mValues[position].time+" "+ mValues[position].estado;
-                //simpleHolder.mTxtViewEstado.Text = mValues[position].estado;
+                simpleHolder.mTxtView.Text = mValues[position].date+"  "+mValues[position].time+" ";
+                simpleHolder.mTxtViewEstado.Text = mValues[position].estado;
+                simpleHolder.mTxtViewEspecialista.Text = mValues[position].especialista;
 
             }
 
@@ -79,18 +80,20 @@ namespace App4.Adapters
             public readonly ImageView mImageView;
             public readonly TextView mTxtView;
             public readonly TextView mTxtViewEstado;
+            public readonly TextView mTxtViewEspecialista;
 
             public SimpleViewHolder(View view) : base(view)
             {
                 mView = view;
                 //mImageView = view.FindViewById<ImageView>(Resource.Id.avatar);
                 mTxtView = view.FindViewById<TextView>(Resource.Id.textName);
-                //mTxtViewEstado = view.FindViewById<TextView>(Resource.Id.textEstado);
+                mTxtViewEstado = view.FindViewById<TextView>(Resource.Id.textEstado);
+                mTxtViewEspecialista = view.FindViewById<TextView>(Resource.Id.textEspecialista);
             }
 
             public override string ToString()
             {
-                return base.ToString() + " '" + mTxtView.Text + mTxtViewEstado.Text;
+                return base.ToString() + " '" + mTxtView.Text + mTxtViewEstado.Text+ mTxtViewEspecialista.Text;
             }
         }
     }

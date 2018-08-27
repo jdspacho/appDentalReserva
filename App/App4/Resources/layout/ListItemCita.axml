@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:gravity="center_vertical">
-    <TextView
-        android:id="@+id/textName"
+    android:minWidth="25px"
+    android:layout_marginTop="20dp"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="vertical"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:textAppearance="?attr/textAppearanceListItem" />
-    <TextView
-        android:id="@+id/textEstado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?attr/textAppearanceListItem" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:background="#0B4761"
+        android:padding="10pt"
+        android:id="@+id/linearLayout1">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tableLayout1">
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:backgroundTint="#fff"
+                android:layout_width="115.0dp">
+                <TextView
+                    android:text="08:24"
+                    android:id="@+id/textName"
+                    android:layout_column="0"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:backgroundTint="#fff"
+                    android:layout_marginRight="50.5dp"
+                    android:layout_width="match_parent" />
+                <TextView
+                    android:textColor="#fff"
+                    android:textStyle="italic"
+                    android:text="Pendiente"
+                    android:id="@+id/textEstado"
+                    android:backgroundTint="#fff"
+                    android:layout_column="1"
+                    android:layout_marginLeft="0.0dp"
+                    android:layout_marginRight="190.5dp"
+                    android:layout_width="83.5dp" />
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2">
+                <TextView
+                    android:textColor="#fff"
+                    android:text="Especialista"
+                    android:id="@+id/textEspe"
+                    android:textStyle="bold"
+                    android:backgroundTint="#fff"
+                    android:layout_column="0" />
+                <TextView
+                    android:textColor="#fff"
+                    android:text="Especialista"
+                    android:backgroundTint="#fff"
+                    android:typeface="sans"
+                    android:fontFamily="@string/abc_action_mode_done"
+                    android:textStyle="italic"
+                    android:id="@+id/textEspecialista"
+                    android:layout_column="1"
+                    android:layout_width="192.0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</RelativeLayout>

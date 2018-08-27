@@ -25,22 +25,35 @@
             <Button
                 android:id="@+id/btnDateCita"
                 android:layout_marginTop="10dp"
+                android:background="#0B4761"
+                android:textStyle="bold"
+                android:textColor="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/form_dateCita" />
             <Button
                 android:id="@+id/btnTimeCita"
                 android:layout_marginTop="10dp"
+                android:background="#0B4761"
+                android:textStyle="bold"
+                android:textColor="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/form_timeCita" />
             <Spinner
                 android:layout_marginTop="10dp"
                 android:padding="5dp"
-                android:backgroundTint="#d11f08"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cmbEspecialidades" />
+            <Spinner
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cmbEspecialistas" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,6 +62,9 @@
                 <Button
                     android:id="@+id/btnGuardarCita"
                     android:layout_marginTop="10dp"
+                    android:backgroundTint="#0f658a"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Guardar Cita" />

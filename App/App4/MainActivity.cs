@@ -45,8 +45,8 @@ namespace App4
             btnLogin.Click += BtnLoginClick;
             btnRegister.Click += BtnRegisterClick;
 
-            emailView.Text = "javier@gmail.com";
-            passwordView.Text = "abc123";
+            emailView.Text = "i1520761@continental.edu.pe";
+            passwordView.Text = "abc123++";
             session = GetSharedPreferences("SessionLogin", FileCreationMode.Private);
         }
         private void BtnLoginClick(object sender,System.EventArgs e)
